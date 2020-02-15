@@ -21,8 +21,13 @@ Inspired by a work discussion regarding team structures. I wanted to create a si
   * single team stand-up order (randomize dev list)
 * Slack bot
   * AWS Lambda and/or DO Dropplet, something simple
+    * make sure to encrypt the v2 api key
 * look into newer Notion.so REST API and/or newer SDKs & clients
   * coookie thing is ugly, need something better
 * don't really need anything from the parent page, could get rid of that extra details
 * describe other ways to use & format the collection within Notion.so
 * JSON sucks for config files (lack of comments), move to YAML?
+
+
+
+Notion.so client: https://github.com/jamalex/notion-py
