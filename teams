@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+from notion.client import NotionClient
+import random
+import json
+
+
+
+config = json.load(open('config.json'))
+
+
+
+# Obtain the `token_v2` value by inspecting your browser cookies on a logged-in session on Notion.so
+client = NotionClient(token_v2=config['notion_v2_cookie'])
+
+# Get page title
+page = client.get_block(config['notion_url_page'])
+print(page.title)
+print("")
+
+# get collection of data
+collection_view = client.get_collection_view(config['notion_url_collection'])
+for row in collection_view.collection.get_rows():
+    print("Team: {}".format(row.title))
+    print("  First Responder: {}".format(row.first_responder))
+    print("  Product Manager: {}".format(row.product_manager))
+    print("  Engineering Manager: {}".format(row.engineering_manager))
+    print("  Slack: #{}".format(row.slack_channel))
+
+    # split and clean up list
+    engineers = row.engineers.split(",")
+    for location, engineer in enumerate(engineers):
+        engineers[location] = engineer.strip()
+
+    print("  Engineers: {}".format(", ".join(engineers)))
+    random.shuffle(engineers)
+    print("  Stand-Up Order: {}, {}, {}".format(", ".join(engineers), row.engineering_manager, row.product_manager))
+
+    print("")
