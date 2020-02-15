@@ -11,6 +11,8 @@ Inspired by a work discussion regarding team structures. I wanted to create a si
   * notion page & collection
   * installation
     * > python3 -m pip install notion
+    * notion page & collection details
+    * config file fields
 * clean up code massively (it's still very much in a POC phase)
 * make a notion template for the team listing & share it
 * separate functions for:
@@ -21,4 +23,6 @@ Inspired by a work discussion regarding team structures. I wanted to create a si
   * AWS Lambda and/or DO Dropplet, something simple
 * look into newer Notion.so REST API and/or newer SDKs & clients
   * coookie thing is ugly, need something better
-
+* don't really need anything from the parent page, could get rid of that extra details
+* describe other ways to use & format the collection within Notion.so
+* JSON sucks for config files (lack of comments), move to YAML?
